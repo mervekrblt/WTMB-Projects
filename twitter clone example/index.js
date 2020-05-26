@@ -6,11 +6,11 @@
 // a Tweet can have many Likes
 // a User can have many Likes
 
-User = class{
+class User{
     constructor(name){
         this.name = name
-        this.tweets =[]  // list of user's tweets
-        this.likes =[]   // list of user's likes
+        this.tweets =[]  //list of user's tweets
+        this.likes =[]   //list of user's likes
     }
 }
 
@@ -18,25 +18,24 @@ merve = new User('Merve')
 melis = new User('Melis')
 olcay = new User('Olcay')
 
-Tweet = class {
-    constructor(name){
-        this.name = name
-        this.likes = [] // list of tweet's likes
-        this.user = []  // list of user of tweet
+class Tweet{
+    constructor(user, text){
+        this.user = user
+        this.text = text
+        this.likes = [] //list of tweet's likes
     }
     createdBy(User){             // a user can create new tweets
-        this.user.push(User.name)  // add user name into tweet user's array
-        User.tweets.push(this) // with this code, I can collect tweets in an array
+        User.tweets.push(this) //with this code, I can collect tweets in an array
     }
 }
 
-tweet1 = new Tweet('Welcome')
-tweet2 = new Tweet('Hello')
+tweet1 = new Tweet('merve','Welcome')
+tweet2 = new Tweet('merve','Hello')
 
 tweet1.createdBy(merve)
 tweet2.createdBy(merve)
 
-Like = class{
+class Like{
     constructor(user, tweet){
     this.user= user  
     this.tweet = tweet
