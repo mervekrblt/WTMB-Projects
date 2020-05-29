@@ -1,4 +1,6 @@
-Meetup = class {
+const Chalk = require('chalk') //important otherwise get error chalk isnt defined
+
+module.exports= class Meetup {
     constructor(name) {
       this.name = name
       this.attendees = []
@@ -8,4 +10,4 @@ Meetup = class {
     }
   }
   
-  printName = person => console.log(person.name)
+  printName = person => console.log(Chalk.bgRed(person.name))
