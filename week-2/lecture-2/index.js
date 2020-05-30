@@ -15,9 +15,10 @@
   
   wtmb.printAttendeeNames()
 
+   const people = [mert, armagan]
+   //const meeting = [wtmb]
   Database.save('meetup.json', wtmb)
-  Database.save('person.json', mert)
-  Database.save('person.json', armagan)
+  Database.save('person.json', people)
   
 
   const loadedFile = Database.load('meetup.json')
