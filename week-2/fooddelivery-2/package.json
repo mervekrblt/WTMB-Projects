@@ -1,0 +1,15 @@
+{
+  "name": "fooddelivery-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Merve Karabulut",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "node-emoji": "^1.10.0"
+  }
+}

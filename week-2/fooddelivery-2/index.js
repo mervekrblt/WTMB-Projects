@@ -1,59 +1,35 @@
-Restaurant = class{
-    constructor(name){
-    this.name = name
-    this.menu = []  // menu is an array that contains foods
-    this.orderlist =[] // access to customer class with ** code
-    this.drivers = []  // list of drivers
-    }
-}
+const Customer = require('./customer')
+const Driver = require('./driver')
+const Food = require('./food')
+const Restaurant = require('./restaurant')
+const Emoji = require('node-emoji')
 
 abc = new Restaurant('ABC') //abc is a restaurant
 
-Food = class{
-    constructor(name, cost){
-        this.name =name
-        this.cost =cost
-    }
-    add(restaurant){
-        this.restaurant = restaurant.name // clarify the restaurant
-        restaurant.menu.push(this)  // I can add foods to restaurant menu by "add" functıon
-    }
-}
+const pizzaIm = Emoji.get('heart') //add emojis for foods
+const hamburgerIm = Emoji.get('coffee')
+const croissantIm = Emoji.get('star')
 
-pizza = new Food ('Pizza', '25 TL')
-hamburger = new Food ('Hamburger', '35 TL')
-croissant = new Food ('Croissant', '8 TL')
+pizza = new Food ('Pizza', '25 TL', pizzaIm)  // pizza, hamburger and croissant are food
+hamburger = new Food ('Hamburger', '35 TL', hamburgerIm)
+croissant = new Food ('Croissant', '8 TL', croissantIm)
 
-Customer = class{
-    constructor(name, adress){
-        this.name = name
-        this.adress = adress
-        this.orderlist= []  // list of customer's orderlist
-    }
-    order(food, restaurant){
-        this.food = food
-        restaurant.orderlist.push(this) // ** code
-        this.orderlist.push(food.name) // add food.name to customer.orderlist by this code
-    }
-}
+merve = new Customer('Merve', 'Ankara') // merve is a customer
 
-merve = new Customer('Merve', 'Ankara')
+ali = new Driver ('Ali') // ali is a driver
 
-Driver = class {
-    constructor(name){
-        this.name = name
-    }
-    accessInformation(customer){  //driver can get access customer information by this function
-        console.log(customer.name, customer.orderlist, customer.adress)
-    }
-    getHiredBy(restaurant){  // driver can be hired by restaurant 
-        this.restaurant=restaurant.name  // add restaurant name into driver information
-        restaurant.drivers.push(this) // I can add to driver's information to restaurant.drivers 
-    }
-}
 
-ali = new Driver ('Ali')
-ali.getHiredBy(abc)
-pizza.add(abc)
-merve.order(pizza,abc)
+ali.getHiredBy(abc)  //ali is abc's (restaurant) driver
+
+pizza.add(abc) // pizza,hamburger and croissant are in abc's menu
+hamburger.add(abc)
+croissant.add(abc)
+
+merve.order(pizza,abc) // customer (merve) order foods from restaurant
 merve.order(hamburger,abc)
+
+
+merve.printOrderList() //print merve's order list to screen
+abc.printMenu() //print restaurant's menu to screen
+
+
