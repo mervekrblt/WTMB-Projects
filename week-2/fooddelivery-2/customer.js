@@ -7,8 +7,7 @@ module.exports = class Customer{
         this.orderlist= []  // list of customer's orderlist
     }
     order(food, restaurant){
-        this.food = food
-        restaurant.orderlist.push(this) // ** code
+        restaurant.orderlist.push(food.name) // ** code
         this.orderlist.push(food) // add food to customer.orderlist by this code
     }
     printOrderList(){
