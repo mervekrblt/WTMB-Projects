@@ -45,7 +45,7 @@ class Customer {
         this.orders = []
     }
     order(food, restaurant, number) {
-        this.orders.push(food.name)
+        this.orders.push(`${food.name}, ${number}`)
         restaurant.orderList.push(`${this.name} orders ${number} ${food.name}`)
     }
 }
@@ -59,3 +59,18 @@ merve.order(pizza, foodCenter, 1)
 
 melis.order(cola, foodCenter, 5)
 melis.order(kebab, foodCenter, 2)
+
+class Driver{
+    constructor(name, restaurant){
+        this.name = name
+        this.restaurant = restaurant.name
+        this.package = []
+    }
+    pickUpOrders(customer){
+        this.package.push(`${customer.name}, ${customer.addres} : ${customer.orders}` )
+    }
+}
+
+ali = new Driver('Ali', foodCenter)
+ali.pickUpOrders(merve)
+ali.pickUpOrders(melis)
