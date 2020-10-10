@@ -1,0 +1,15 @@
+{
+  "name": "week-2-2017",
+  "version": "1.0.0",
+  "description": "Week-2 project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Merve KArabulut <mervkarabulut@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.0"
+  }
+}
