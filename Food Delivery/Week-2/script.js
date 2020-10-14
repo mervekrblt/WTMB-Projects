@@ -9,18 +9,22 @@ const Restaurant = require('./restaurant');
 const Food = require('./food');
 const Customer = require('./customer');
 const Driver = require('./driver');
+const emoji = require('node-emoji');
 
 foodCenter = new Restaurant('Food Center')
 
+const colaImg = emoji.get('tropical_drink')
+const pizzaImg = emoji.get('pizza')
+const hamburgerImg = emoji.get('hamburger')
 
 
-pizza = new Food('Pizza', '10 $')
-cola = new Food('Cola', '2 $')
-kebab = new Food('Kebab', '15 $')
+pizza = new Food('Pizza', '10 $', pizzaImg)
+cola = new Food('Cola', '2 $', colaImg)
+hamburger = new Food('Hamburger', '15 $', hamburgerImg)
 
 foodCenter.has(pizza)
 foodCenter.has(cola)
-foodCenter.has(kebab)
+foodCenter.has(hamburger)
 
 
 
@@ -32,7 +36,7 @@ merve.order(cola, foodCenter, 2)
 merve.order(pizza, foodCenter, 1)
 
 melis.order(cola, foodCenter, 5)
-melis.order(kebab, foodCenter, 2)
+melis.order(hamburger, foodCenter, 2)
 
 
 
@@ -41,3 +45,7 @@ ali.pickUpOrders(merve)
 ali.pickUpOrders(melis)
 
 console.log(merve)
+console.log(melis)
+console.log(foodCenter)
+console.log(emoji.get('coffee'))
+console.log(pizza)
