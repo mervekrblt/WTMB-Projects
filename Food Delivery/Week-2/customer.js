@@ -7,7 +7,7 @@ module.exports = class Customer {
         this.orders = []
     }
     order(food, restaurant, number) {
-        this.orders.push(`${food.name}${food.emoji}, ${number}`)
+        this.orders.push(`${food.name} ${food.emoji}, ${number}`)
         restaurant.orderList.push(`${this.name} orders ${number} ${food.name} ${food.emoji}`)
     }
 }

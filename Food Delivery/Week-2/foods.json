@@ -1,0 +1,13 @@
+[{
+    "name": "Pizza",
+    "cost": "10 $",
+    "emoji": "🍕"
+}, {
+    "name": "Cola",
+    "cost": "2 $",
+    "emoji": "🍹"
+}, {
+    "name": "Hamburger",
+    "cost": "15 $",
+    "emoji": "🍔"
+}]

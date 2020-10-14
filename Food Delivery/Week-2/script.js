@@ -5,47 +5,56 @@
 // Using the database.js module introduced this week, save one or more of your classes into JSON files.
 // DO NOT SUBMIT node_modules folder. package.json is sufficient.
 
-const Restaurant = require('./restaurant');
-const Food = require('./food');
-const Customer = require('./customer');
-const Driver = require('./driver');
-const emoji = require('node-emoji');
+// const Restaurant = require('./restaurant');
+// const Food = require('./food');
+// const Customer = require('./customer');
+// const Driver = require('./driver');
+// const emoji = require('node-emoji');
+ const Database = require('./database');
 
-foodCenter = new Restaurant('Food Center')
+// foodCenter = new Restaurant('Food Center')
 
-const colaImg = emoji.get('tropical_drink')
-const pizzaImg = emoji.get('pizza')
-const hamburgerImg = emoji.get('hamburger')
-
-
-pizza = new Food('Pizza', '10 $', pizzaImg)
-cola = new Food('Cola', '2 $', colaImg)
-hamburger = new Food('Hamburger', '15 $', hamburgerImg)
-
-foodCenter.has(pizza)
-foodCenter.has(cola)
-foodCenter.has(hamburger)
+// const colaImg = emoji.get('tropical_drink')
+// const pizzaImg = emoji.get('pizza')
+// const hamburgerImg = emoji.get('hamburger')
 
 
+// pizza = new Food('Pizza', '10 $', pizzaImg)
+// cola = new Food('Cola', '2 $', colaImg)
+// hamburger = new Food('Hamburger', '15 $', hamburgerImg)
 
-
-merve = new Customer('Merve', 'Ankara')
-melis = new Customer('Melis', 'Ankara')
-
-merve.order(cola, foodCenter, 2)
-merve.order(pizza, foodCenter, 1)
-
-melis.order(cola, foodCenter, 5)
-melis.order(hamburger, foodCenter, 2)
+// foodCenter.has(pizza)
+// foodCenter.has(cola)
+// foodCenter.has(hamburger)
 
 
 
-ali = new Driver('Ali', foodCenter)
-ali.pickUpOrders(merve)
-ali.pickUpOrders(melis)
 
-console.log(merve)
-console.log(melis)
-console.log(foodCenter)
-console.log(emoji.get('coffee'))
-console.log(pizza)
+// merve = new Customer('Merve', 'Ankara')
+// melis = new Customer('Melis', 'Ankara')
+
+// merve.order(cola, foodCenter, 2)
+// merve.order(pizza, foodCenter, 1)
+
+// melis.order(cola, foodCenter, 5)
+// melis.order(hamburger, foodCenter, 2)
+
+
+
+// ali = new Driver('Ali', foodCenter)
+// ali.pickUpOrders(merve)
+// ali.pickUpOrders(melis)
+
+
+// const customers = [merve, melis]
+// const restaurants = [foodCenter]
+// const foods = [pizza, cola, hamburger]
+// const drivers = [ali]
+
+// Database.save('customer.json', customers)
+// Database.save('restaurants.json', restaurants)
+// Database.save('foods.json', foods)
+// Database.save('drivers.json', drivers)
+
+const loadedFie = Database.load('customer.json')
+console.log(loadedFie)
