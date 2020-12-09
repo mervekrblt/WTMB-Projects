@@ -14,70 +14,44 @@ Interactions
     a User can have many Likes
 */
 
-class User {
-    constructor(name, username) {
-        this.name = name
+class User{
+    constructor(username,password){
         this.username = username
+        this.password = password
         this.tweets = []
         this.likes = []
     }
-    hasManyTweets() {
-        const x = this.tweets.length
-        console.log(`${this.name} has ${x} tweets`)
+    tweet(text){
+        this.tweets.push(text)
     }
-    has(like) {
-        this.likes.push(`You liked ${like.user}'s '${like.tweet}' tweet`)
-    }
-}
-
-
-
-class Like {
-    constructor(user, tweet) {
-        this.user = user
-        this.tweet = tweet
+    like(tweet){
+        this.likes.push(tweet)
+        tweet.likes.push(`+1 by ${this.username}`)
     }
 }
 
+merve = new User('merve', 'password1')
+melis = new User('melis', 'password2')
+ahmet = new User('ahmet', 'passwor3')
+merve.tweet('Hello world')
+merve.tweet('I Love JS')
 
-class Tweet {
-    constructor(tweet) {
-        this.tweet = tweet
+class Tweet{
+    constructor(text){
+        this.text = text
         this.likes = []
     }
-    createdBy(user) {
-        user.tweets.push(this)
-    }
-    likedBy(user) {
-        this.likes.push(user.username)
-    }
 }
 
-merve = new User('Merve', 'usagi')
-melis = new User('Melis', 'chibi')
-olcay = new User('Olcay', 'olcay')
+tweet1 = new Tweet(merve.tweets[0])
+tweet2 = new Tweet(merve.tweets[1])
 
-tweet1 = new Tweet('Hello World!')
-tweet2 = new Tweet('I love JS')
-tweet3 = new Tweet('Sister give me laptop, it is my turn')
+melis.like(tweet1)
+melis.like(tweet2)
+ahmet.like(tweet1)
 
-//user has tweets
-tweet1.createdBy(merve)
-tweet2.createdBy(merve)
-tweet3.createdBy(melis)
+class Like{
+    constructor(){
 
-like1 = new Like('merve', 'Hello World!')
-like2 = new Like('merve', 'I love JS')
-like3 = new Like('melis', 'Sister give me laptop, it is my turn')
-
-//user has likes
-melis.has(like1)
-melis.has(like2)
-olcay.has(like3)
-merve.has(like3)
-
-//user's tweet has likes
-tweet1.likedBy(melis)
-tweet2.likedBy(melis)
-tweet1.likedBy(olcay)
-tweet3.likedBy(olcay)
+    }
+}
