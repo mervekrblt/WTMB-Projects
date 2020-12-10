@@ -15,43 +15,54 @@ Interactions
 */
 
 class User{
-    constructor(username,password){
-        this.username = username
-        this.password = password
+    constructor(name, username){
+        this.name =name
+        this.username =username
+        this.followers =[]
+        this.following = []
         this.tweets = []
-        this.likes = []
+        this.likedTweets = []
+    }
+    follow(user){
+        user.followers.push(this)
+        this.following.push(user)
     }
     tweet(text){
-        this.tweets.push(text)
+        const tweet = new Tweet(this.username,text)
+        this.tweets.push(tweet)
     }
-    like(tweet){
-        this.likes.push(tweet)
-        tweet.likes.push(`+1 by ${this.username}`)
+    like(user, tweet){
+        const likedTweet = new Like(user.username, tweet)
+        this.likedTweets.push(likedTweet)
+        user.tweets.filter(i => i.text===tweet)[0].likes.push(this.username) //I am crying
+
     }
 }
-
-merve = new User('merve', 'password1')
-melis = new User('melis', 'password2')
-ahmet = new User('ahmet', 'passwor3')
-merve.tweet('Hello world')
-merve.tweet('I Love JS')
 
 class Tweet{
-    constructor(text){
+    constructor(creator, text){
+        this.creator=creator
         this.text = text
-        this.likes = []
+        this.likes =[]
     }
+        
 }
-
-tweet1 = new Tweet(merve.tweets[0])
-tweet2 = new Tweet(merve.tweets[1])
-
-melis.like(tweet1)
-melis.like(tweet2)
-ahmet.like(tweet1)
 
 class Like{
-    constructor(){
-
+    constructor(user, text){
+        this.user = user
+        this.text = text
     }
 }
+
+merve = new User('Merve', 'usagi')
+melis = new User('Melis', 'chibiusa')
+
+melis.follow(merve)
+
+merve.tweet('Hello world')
+merve.tweet('I love JS')
+melis.tweet('LOL')
+
+melis.like(merve, 'Hello world')
+melis.like(merve, 'I love JS')
