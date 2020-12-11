@@ -8,6 +8,7 @@ class User{
     tweet(text){
         const tweet = new Tweet(this,text)
         this.tweets.push(tweet)
+        return tweet
     }
     like(tweet){
         this.likedTweets.push(tweet)
@@ -25,7 +26,7 @@ class Tweet{
 merve = new User('Merve', 'usagi')
 melis = new User('Melis', 'chibiusa')
 
-merve.tweet('Hello world')
-const tweet1 = new Tweet(merve, 'Hello world')
+
+const tweet1 = merve.tweet('Hello world')
 
 melis.like(tweet1)
