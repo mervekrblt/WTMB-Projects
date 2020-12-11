@@ -1,4 +1,4 @@
-# WOMAN TECHMAKERS BERLIN -2019
+# WOMEN TECHMAKERS BERLIN -2019
 
 This repository includes WTMB-2019 lessons (also homework) that was given by Armağan Amcalar 
 
