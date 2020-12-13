@@ -1,0 +1,15 @@
+{
+  "name": "lesson-2",
+  "version": "1.0.0",
+  "description": "wtmb-lesson2",
+  "main": "script.js",
+  "dependencies": {
+    "nodemon": "^2.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Merve Karabulut",
+  "license": "MIT"
+}
