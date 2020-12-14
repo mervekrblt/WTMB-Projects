@@ -12,7 +12,8 @@
 
 const Person = require('./person.js')
 const Meetup = require('./meetup.js');
-
+const Chalk = require('chalk')
+const Database = require('./database.js')
 
 const mert = new Person('Mert', 34)
 const armagan = new Person('Armagan', 35)
@@ -22,6 +23,13 @@ armagan.greet(mert)
 
 const wtmb = new Meetup('WTM Berlin')
 
+console.log(Chalk.bgMagentaBright('Merve'))
+
 armagan.attend(wtmb)
 mert.attend(wtmb)
 wtmb.printAttendeeNames()
+
+Database.save('person.json',{mert, armagan})
+Database.save('meetup.json',wtmb)
+
+console.log(Database.load('meetup.json'))

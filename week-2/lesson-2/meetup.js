@@ -1,3 +1,5 @@
+const Chalk = require("chalk")
+
 module.exports = class Meetup {
     constructor(name) {
         this.name = name
@@ -10,5 +12,5 @@ module.exports = class Meetup {
 }
 
 printName = (person) =>{
-    console.log(person.name, person.age)
+    console.log(Chalk.underline(person.name, person.age))
 }

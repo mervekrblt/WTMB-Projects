@@ -4,6 +4,7 @@
   "description": "wtmb-lesson2",
   "main": "script.js",
   "dependencies": {
+    "chalk": "^4.1.0",
     "nodemon": "^2.0.6"
   },
   "devDependencies": {},
