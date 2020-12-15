@@ -1,0 +1,37 @@
+[{
+    "name": "Merve",
+    "username": "usagi",
+    "tweets": [{
+        "creator": "usagi",
+        "text": "Hello world",
+        "likes": [{
+            "user": "chibiusa",
+            "likedTweet": "Hello world"
+        }]
+    }, {
+        "creator": "usagi",
+        "text": "I love JS",
+        "likes": []
+    }],
+    "likedTweets": [],
+    "following": ["chibiusa"],
+    "followers": []
+}, {
+    "name": "Melis",
+    "username": "chibiusa",
+    "tweets": [{
+        "creator": "chibiusa",
+        "text": "Hi",
+        "likes": []
+    }],
+    "likedTweets": [{
+        "creator": "usagi",
+        "text": "Hello world",
+        "likes": [{
+            "user": "chibiusa",
+            "likedTweet": "Hello world"
+        }]
+    }],
+    "following": [],
+    "followers": ["usagi"]
+}]

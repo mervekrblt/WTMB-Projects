@@ -1,0 +1,16 @@
+[{
+    "creator": "usagi",
+    "text": "Hello world",
+    "likes": [{
+        "user": "chibiusa",
+        "likedTweet": "Hello world"
+    }]
+}, {
+    "creator": "usagi",
+    "text": "I love JS",
+    "likes": []
+}, {
+    "creator": "chibiusa",
+    "text": "Hi",
+    "likes": []
+}]
