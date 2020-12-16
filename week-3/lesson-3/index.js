@@ -1,27 +1,15 @@
-const Person = require('./person')
-const Meetup = require('./meetup')
 const Database = require('./database')
-
-armagan = new Person('Armagan', 35)
-mert = new Person('Mert', 34)
-
-armagan.greet(mert)
-mert.greet(armagan)
-
-
-
-wtmb = new Meetup('WTMB')
-
-armagan.attend(wtmb)
-armagan.attend(wtmb)
-mert.attend(wtmb)
-
-wtmb.printAttendeeNames()
-
-const people = [armagan, mert]
-
-Database.save('person.json', people)
-Database.save('meetup.json', wtmb)
+const Meetup = require('./meetup')
+const Person = require('./person')
 
 const loadedFile = Database.load('meetup.json')
+
+
+//create a new instance
+const wtmb = Meetup.create(loadedFile)
+
+
+const merve = new Person('Merve', 26)
+merve.attend(wtmb)
+Database.save('meetup.json', wtmb)
 console.log(loadedFile)

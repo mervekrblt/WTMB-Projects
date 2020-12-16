@@ -1,1 +1,12 @@
-[{"name":"Armagan","age":35,"meetups":["WTMB","WTMB"]},{"name":"Mert","age":34,"meetups":["WTMB"]}]
+{
+    "mert": {
+        "name": "Mert",
+        "age": 34,
+        "meetups": ["WTM Berlin"]
+    },
+    "armagan": {
+        "name": "Armagan",
+        "age": 35,
+        "meetups": ["WTM Berlin"]
+    }
+}
