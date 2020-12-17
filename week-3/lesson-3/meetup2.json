@@ -1,0 +1,20 @@
+{
+    "name": "wtmb2",
+    "attendees": [{
+        "name": "Melis",
+        "age": 18,
+        "meetups": ["wtmb2"]
+    }, {
+        "name": "olcay",
+        "age": 48,
+        "meetups": ["wtmb2"]
+    }, {
+        "name": "olcay",
+        "age": 48,
+        "meetups": ["wtmb2"]
+    }, {
+        "name": "bektaş",
+        "age": 51,
+        "meetups": ["wtmb2"]
+    }]
+}
