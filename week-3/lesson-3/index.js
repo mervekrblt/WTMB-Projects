@@ -2,18 +2,18 @@ const Database = require('./database')
 const Meetup = require('./meetup')
 const Person = require('./person')
 
-console.log(Database.load('person.json'))
-const loadedFile = Database.load('meetup.json')
+Database.load('meetup.json', (err, loadedFile) => {
+    console.log('hello')
+
+    const wtmb = Meetup.create(loadedFile)
+    wtmb.printAttendeeNames()
+})
+
+console.log('Is it first')
+
+
 //loadedFile.printAttendeeNames() -->printAttendeeNames is not a function, loaded file doesnt have this method. Because of this, create "static create(){...}" in meetup.js
 
-//create a new instance
-const wtmb = Meetup.create(loadedFile)
-
-
-const merve = new Person('Merve', 26)
-merve.attend(wtmb)
-Database.save('meetup.json', wtmb)
-console.log(loadedFile)
 
 /*
 This section is another example of saving data in meetup2.json
