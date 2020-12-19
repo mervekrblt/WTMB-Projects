@@ -5,7 +5,7 @@ const fs = require('fs')
 First version, synchronous
 
 */
-
+/*
 const file1 = fs.readFileSync(__dirname + '/files/1.txt', 'utf8')
 console.log(file1)
 
@@ -14,24 +14,31 @@ console.log(file2)
 
 const file3 = fs.readFileSync(__dirname + '/files/3.txt', 'utf8')
 console.log(file3)
-
+*/
 /*
 
 Second version, asynchronous
 
 */
-
+/*
 fs.readFile(__dirname + '/files/1.txt', 'utf8', (err, contents1) => {
     console.log(contents1)
-    fs.readFile(__dirname + '/files/2.txt', 'utf8', (err, contents2) => {
-        console.log(contents2)
-        fs.readFile(__dirname + '/files/3.txt', 'utf8', (err, contents3) => {
-            console.log(contents3)
-        })
-    })
 })
 
 
+fs.readFile(__dirname + '/files/2.txt', 'utf8', (err, contents2) => {
+    console.log(contents2)
+})
+
+
+fs.readFile(__dirname + '/files/3.txt', 'utf8', (err, contents3) => {
+    console.log(contents3)
+})
+
+
+
+console.log('am i first')
+*/
 
 /*
 
@@ -51,7 +58,8 @@ let readFile = (filename) => {
         })
     })
 }
-
+/*
+There are lots of code repetition; then then then...
 readFile(__dirname + '/files/1.txt')
     .then(console.log)
     .then(() => readFile(__dirname + '/files/2.txt'))
@@ -60,6 +68,7 @@ readFile(__dirname + '/files/1.txt')
     .then(console.log)
     .catch(console.log)
 
+    */
 /*
 
 Fourth version, async / await
@@ -77,10 +86,17 @@ async function main() {
     console.log(contents3)
 }
 
-(async () => {
-    try {
-        await main()
-    } catch (e) {
-        console.log(e)
-    }
-})()
+
+
+console.log('1')
+main();
+console.log('2')
+console.log('3')
+
+// (async () => {
+//     try {
+//         await main()
+//     } catch (e) {
+//         console.log(e)
+//     }
+// })
