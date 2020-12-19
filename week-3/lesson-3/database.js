@@ -7,6 +7,11 @@ function save(filename, data){
 
 function load(filename, callback){
     fs.readFile(filename, 'utf-8', (err, file) => {
-        callback(err, JSON.parse(file))
+        if(err){
+            console.log('There is a read error')
+            callback(err)  
+            return //stop runing code
+        }
+        callback(null, JSON.parse(file))
     })
 }

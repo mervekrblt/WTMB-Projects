@@ -3,6 +3,12 @@ const Meetup = require('./meetup')
 const Person = require('./person')
 
 Database.load('meetup.json', (err, loadedFile) => {
+
+    if(err){
+        console.log('An error occured', err)
+        return //stop runing code
+    }
+
     console.log('hello')
 
     const wtmb = Meetup.create(loadedFile)
