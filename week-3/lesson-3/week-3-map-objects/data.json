@@ -1,0 +1,24 @@
+{
+    "meetup": {
+        "name": "Women Techmakers Berlin",
+        "location": "Wayfair",
+        "attendees": [{
+            "name": "Armagan",
+            "age": 35
+        }, {
+            "name": "Mert",
+            "age": 34
+        }, {
+            "name": "Melis",
+            "age": 26
+        }]
+    },
+    "wayfairMeetup": {
+        "name": "Wayfair",
+        "location": "Location",
+        "attendees": [{
+            "name": "Merve",
+            "age": 26
+        }]
+    }
+}
