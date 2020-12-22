@@ -4,4 +4,7 @@ module.exports =class Tweet{
         this.text = text
         this.likes = []
     }
+    static create(user, text){
+        return new Tweet(user,text)
+    }
 }

@@ -3,4 +3,7 @@ module.exports =class Like{
         this.user = user.username
         this.likedTweet= tweet.text
     }
+    static create(user,tweet){
+        return new Like(user,tweet)
+    }
 }
