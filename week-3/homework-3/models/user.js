@@ -13,13 +13,13 @@ module.exports= class User{
     }
     tweet(text){
         const tweet = new Tweet(this,text)
-        this.tweets.push(tweet)
+        this.tweets.push(tweet.text) //break circular 
         return tweet
     }
     like(tweet){
         const like = new Like(this, tweet)
         this.likedTweets.push(tweet)
-        tweet.likes.push(like)
+        tweet.likes.push(this.username) //break circular
         return like
     }
     follow(user){
