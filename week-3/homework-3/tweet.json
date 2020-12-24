@@ -1,8 +1,0 @@
-{
-    "creator": "usagi",
-    "text": "Hello world",
-    "likes": [{
-        "user": "chibiusa",
-        "likedTweet": "Hello world"
-    }]
-}
