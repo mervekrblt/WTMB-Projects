@@ -3,13 +3,14 @@ const Like = require('./like')
 
 
 module.exports= class User{
-    constructor(name, username, tweets=[],likedTweets=[], following=[],followers=[]){
+    constructor(name, username, tweets=[],likedTweets=[], following=[],followers=[], id){
         this.name = name
         this.username = username
         this.tweets = tweets
         this.likedTweets =likedTweets
         this.following = following
         this.followers =followers
+        this.id=id
     }
     tweet(text){
         const tweet = new Tweet(this,text)
@@ -26,7 +27,7 @@ module.exports= class User{
         user.followers.push(this.username)
         this.following.push(user)
     }
-    static create({name, username, tweets,likedTweets, following,followers}){
-        return new User(name, username, tweets,likedTweets, following,followers) 
+    static create({name, username, tweets,likedTweets, following,followers, id}){
+        return new User(name, username, tweets,likedTweets, following,followers, id) 
     }
 }

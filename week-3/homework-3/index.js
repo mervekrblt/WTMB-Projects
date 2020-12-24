@@ -6,32 +6,38 @@ const TweetService = require('./services/tweet-service')
 const LikeService = require('./services/like-service')
 const userService = require('./services/user-service')
 
-
+// add function adds id for objects. Dont need to add id with default, but you should use add function.
 async function main() {
-    /*merve = new User('Merve', 'usagi')
-    melis = new User('Melis', 'chibiusa')
+    const merve = new User('merve', 'usagi')
+    const melis = new User('melis', 'chibiusa')
 
-    await UserService.add(merve)
-    await UserService.add(melis)
-
-    const tweet1 =merve.tweet('hello')
-    await TweetService.add(tweet1)
-    */
-    const twt = await TweetService.findAll()
-    console.log(twt)
-    await TweetService.del(1)
-    /*
-    const like1 =melis.like(tweet1)
-    await LikeService.add(like1)
-    const likes = await LikeService.findAll()
-    
-
-    const olcay = new User('olcay', 'olcay')
-    await UserService.add(olcay)
+    // await UserService.add(merve)
+    // await UserService.add(melis)
     const users = await UserService.findAll()
-    console.log(users)
-    userService.del(1)
-    */
+
+    //  const tweet1 = merve.tweet('Hello world')
+    //  const tweet2 = merve.tweet('I love JS')
+    //  await TweetService.add(tweet1)
+    //  await TweetService.add(tweet2)
+    const tweets = await TweetService.findAll()
+    //console.log(tweets)
+
+    // const like1 = melis.like(tweet1)
+    // const like2 = melis.like(tweet2)
+    // await LikeService.add(like1)
+    // await LikeService.add(like2)
+    const likes = await LikeService.findAll()
+    //console.log(likes)
+
+    //example for deleting
+    await LikeService.del(1)
+    const likesdel =  await LikeService.findAll()
+
+    console.log(likesdel)
+
+    //example of working static create function. user1 isnt object, it is a class, so you can use tweet functionality
+    const user1 =await UserService.find(1)
+    console.log(user1.tweet('Merhaba'))
 }
 
 main()
