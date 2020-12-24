@@ -1,5 +1,1 @@
-[{
-    "creator": "1",
-    "text": "2",
-    "likes": "3"
-}, "usagi", "Hello world", []]
+[["1","2","3","4"],{"text":"5","likes":"6"},{"text":"7","likes":"8"},{"text":"7","likes":"9"},{"user":"10","text":"7","likes":"11","id":1},"Hello world",[],"hello",[],[],{"name":"12","username":"13","tweets":"14","likedTweets":"15","following":"16","followers":"17","id":1},[],"Merve","usagi",["4"],[],[],[]]

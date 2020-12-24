@@ -13,16 +13,10 @@ async function main() {
     await UserService.add(merve)
     await UserService.add(melis)
 
-    const users = await UserService.findAll()
-    console.log(users)
-    //console.log(users[0].tweet('Hello'))
-
-    const tweet1 = merve.tweet('Hello world')
-    const tweet2 = melis.tweet('Hi')
-    await TweetService.saveAll(tweet1,tweet2)
-    merve.follow(melis)
-
-    const like1 = melis.like(tweet1)
+    const tweet1 =merve.tweet('hello')
+    await TweetService.add(tweet1)
+    const twt = await TweetService.findAll()
+    console.log(twt)
 }
 
 main()
