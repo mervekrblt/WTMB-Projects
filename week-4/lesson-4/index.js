@@ -1,29 +1,12 @@
-const Person = require('./models/person')
-const Meetup = require('./models/meetup')
-const PersonService = require('./services/person-service')
-const MeetupService = require('./services/meetup-service')
+const express = require('express')
 
-async function main(){
-  const mert = new Person('Mert', 33)
-  const armagan = new Person('Armagan', 34)
+const app = express()
 
-  const wtmb = new Meetup('Women Tech Makers Berlin', 'Eurostaff')
-  armagan.attend(wtmb)
-  mert.attend(wtmb)
-  wtmb.report()
+app.get('/', (req,res) => {
+  //res.send('/.index.html') //send --> any data like a string
+  res.sendFile('C:/Users/PC/Desktop/WTMB-Projects/week-4/lesson-4/index.html')
+})
 
-  await PersonService.add(mert)
-  await PersonService.add(armagan)
-
-  const people = await PersonService.findAll()
-
-  console.log(people[0].name)
-
-  await PersonService.del(1)
-
-  const newPeople = await PersonService.findAll()
-  
-  console.log(newPeople[0].name)
-}
-
-main()
+app.listen(3000, () =>{
+  console.log('server listening')
+})
