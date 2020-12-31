@@ -1,1 +1,18 @@
-[["1"],{"name":"2","age":34,"meetups":"3","id":2},"Armagan",["4"],{"name":"5","location":"6","attendees":"7"},"Women Tech Makers Berlin","Eurostaff",["8","9"],{"name":"2","age":34,"meetups":"3","id":2},{"name":"10","age":33,"meetups":"11","id":1},"Mert",["4"]]
+[[
+  {
+    "name": "Mert",
+    "age": 33,
+    "meetups": [
+      "Women Tech Makers Berlin"
+    ],
+    "id": 1
+  },
+  {
+    "name": "Armagan",
+    "age": 34,
+    "meetups": [
+      "Women Tech Makers Berlin"
+    ],
+    "id": 2
+  }
+]]
