@@ -17,6 +17,16 @@ app.get('/person/all', async (req, res) => {
   res.render('person', {people:people})
 })
 
+app.get('/person/:id', async(req, res) => {
+  const id = req.params.id
+  const person = await PersonService.find(id)
+  
+  if(person){
+    res.send(person)
+  }else res.send('Dont have data')
+    
+})
+
 app.listen(3000, () =>{
   console.log('server listening')
 })
