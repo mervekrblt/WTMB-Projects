@@ -13,7 +13,8 @@ app.get('/', (req,res) => {
 
 app.get('/person/all', async (req, res) => {
   const people = await PersonService.findAll()
-  res.send(people)
+  //res.send(people)
+  res.render('person', {people:people})
 })
 
 app.listen(3000, () =>{
