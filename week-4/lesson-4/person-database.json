@@ -1,18 +1,1 @@
-[[
-  {
-    "name": "Mert",
-    "age": 33,
-    "meetups": [
-      "Women Tech Makers Berlin"
-    ],
-    "id": 1
-  },
-  {
-    "name": "Armagan",
-    "age": 34,
-    "meetups": [
-      "Women Tech Makers Berlin"
-    ],
-    "id": 2
-  }
-]]
+[["1","2"],{"name":"3","age":18,"meetups":"4","id":2},{"name":"5","age":26,"id":3},"Melis",[],"Merve"]
