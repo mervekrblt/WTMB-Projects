@@ -1,0 +1,6 @@
+extends layout
+
+block content4
+    each like in likes
+        p #{like.id}
+        p #{like.user.username} likes #{like.tweet.user.username}'s #{like.tweet.text} tweet 
