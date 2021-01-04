@@ -1,0 +1,36 @@
+[
+    ["1", "2"], {
+        "user": "3",
+        "text": "4",
+        "likes": "5",
+        "id": 1
+    }, {
+        "user": "6",
+        "text": "7",
+        "likes": "8",
+        "id": 2
+    }, {
+        "name": "9",
+        "username": "10",
+        "tweets": "11",
+        "likedTweets": "12",
+        "following": "13",
+        "followers": "14",
+        "id": 1
+    }, "Hello world", [], {
+        "name": "9",
+        "username": "10",
+        "tweets": "15",
+        "likedTweets": "16",
+        "following": "17",
+        "followers": "18",
+        "id": 1
+    }, "I love JS", [], "merve", "usagi", ["4", "7"],
+    [],
+    [],
+    [],
+    ["4", "7"],
+    [],
+    [],
+    []
+]

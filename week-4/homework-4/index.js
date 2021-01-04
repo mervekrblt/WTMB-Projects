@@ -1,24 +1,21 @@
-const User = require('./models/user');
-const Like = require('./models/like');
-const Tweet = require('./models/tweet');
+const express = require('express')
 const UserService = require('./services/user-service')
 const TweetService = require('./services/tweet-service')
 const LikeService = require('./services/like-service')
 
+const app = express()
 
-async function main(){
-    const merve = new User('Merve', 26)
-    await UserService.add(merve)
+app.set('view engine', 'pug')
 
-    const tweet1 = merve.tweet('Hello')
-    const tweet2 = merve.tweet('World')
+app.get('/', (req,res)=>{
+    res.render('index')
+})
 
-    await TweetService.add(tweet1)
-    await TweetService.add(tweet2)
+app.get('/user/all', async (req,res)=>{
+    const users = await UserService.findAll()
+    res.render('user', {users:users})
+})
 
-    const tweets = await TweetService.findAll()
-
-    console.log(tweets)
-}
-
-main()
+app.listen(3000, 'localhost', ()=>{
+    console.log('server is listening')
+})

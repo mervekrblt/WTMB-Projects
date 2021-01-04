@@ -1,0 +1,11 @@
+extends layout
+
+block content2
+    h1( style = "color: pink")  Twitter User Page
+    
+    each user in users
+        p( style ="color:red") id: #{user.id}
+        
+        p name: #{user.name} 
+        p username: #{user.username}
+        hr

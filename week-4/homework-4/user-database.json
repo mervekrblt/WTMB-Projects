@@ -1,0 +1,25 @@
+[
+    ["1", "2"], {
+        "name": "3",
+        "username": "4",
+        "tweets": "5",
+        "likedTweets": "6",
+        "following": "7",
+        "followers": "8",
+        "id": 1
+    }, {
+        "name": "9",
+        "username": "10",
+        "tweets": "11",
+        "likedTweets": "12",
+        "following": "13",
+        "followers": "14",
+        "id": 2
+    }, "merve", "usagi", [],
+    [],
+    [],
+    [], "melis", "chibiusa", [],
+    [],
+    [],
+    []
+]
