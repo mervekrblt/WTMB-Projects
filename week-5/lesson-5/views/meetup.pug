@@ -1,0 +1,9 @@
+extends layout
+
+block content2
+    each meetup in meetups
+        p name: #{meetup.name} 
+        p location: #{meetup.location}
+        //p attendees: #{meetup.attendees} meetup.attendees[0].name gives armagan otherwise object Object
+        p id: #{meetup.id}
+        hr
