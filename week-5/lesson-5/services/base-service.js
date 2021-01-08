@@ -9,45 +9,51 @@ module.exports = class Service {
 
 
   async findAll() {
-    return new Promise((resolve, reject) => {
-      fs.readFile(this.dbPath, 'utf8', async (err, file) => {
-        if (err) {
-          if (err.code == 'ENOENT') {
-            await this.saveAll([])
-            return resolve([])
-          }
 
-          return reject(err)
-        }
+    return this.model.find()
+    // return new Promise((resolve, reject) => {
+    //   fs.readFile(this.dbPath, 'utf8', async (err, file) => {
+    //     if (err) {
+    //       if (err.code == 'ENOENT') {
+    //         await this.saveAll([])
+    //         return resolve([])
+    //       }
 
-        const items = Flatted.parse(file).map(this.model.create)
+    //       return reject(err)
+    //     }
 
-        resolve(items)
-      })
-    })
+    //     const items = Flatted.parse(file).map(this.model.create)
+
+    //     resolve(items)
+    //   })
+    // })
   }
 
   async add(item) {
-    const allItems = await this.findAll()
-    const lastItem = allItems[allItems.length - 1]
-    const lastItemsId = lastItem && lastItem.id || 0
-    item.id = lastItemsId + 1
 
-    allItems.push(item)
+    return this.model.create(item)
+    // const allItems = await this.findAll()
+    // const lastItem = allItems[allItems.length - 1]
+    // const lastItemsId = lastItem && lastItem.id || 0
+    // item.id = lastItemsId + 1
 
-    await this.saveAll(allItems)
+    // allItems.push(item)
 
-    return item
+    // await this.saveAll(allItems)
+
+    // return item
   }
 
   async  del(itemId) {
-    const allItems = await this.findAll()
-    const itemIndex = allItems.findIndex(p => p.id == itemId)
-    if (itemIndex < 0) return
 
-    allItems.splice(itemIndex, 1)
+    return this.model.remove({_id:itemId})
+    // const allItems = await this.findAll()
+    // const itemIndex = allItems.findIndex(p => p.id == itemId)
+    // if (itemIndex < 0) return
 
-    await this.saveAll(allItems)
+    // allItems.splice(itemIndex, 1)
+
+    // await this.saveAll(allItems)
   }
 
   async find(itemId = 1) {

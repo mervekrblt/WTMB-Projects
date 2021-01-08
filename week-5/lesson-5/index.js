@@ -11,6 +11,8 @@ const app = express()
 const personRouter = require('./routes/person')
 const meetupRouter = require('./routes/meetup')
 
+require('./mongo-connection')
+
 app.use(bodyParser.json())
 app.set('view engine', 'pug')
 

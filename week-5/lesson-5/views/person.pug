@@ -8,7 +8,9 @@ block content2
     // p1 Names of people : #{Object.entries(people).filter(x => x.name)} it doesnt work because people is object, I tried to convert it into array, but i couldnt. Actually, pug doesnt has map, filter functions.
     each person in people
         //h4 #{person.name person.age} doesnt work
-        h4 #{person.name} #{person.age} #{person.meetups}
+        h4 #{person.name} 
+        h4 #{person.age} #{person.meetups}
+        h4 #{person._id}
         hr
         
     //dont write from this line 
