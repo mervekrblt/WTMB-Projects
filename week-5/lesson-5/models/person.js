@@ -10,9 +10,19 @@ const PersonSchema = new mongoose.Schema({
         type: Number,
         required: true,
         min: 18
-    }
+    },
+    meetups: [{
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: 'Meetup'
+    }]
 })
 
-const PersonModel = mongoose.model('person', PersonSchema)
+PersonSchema.methods.attend = async function(){
+    this.meetups.push(meetup)
+    //have to save it
+    await this.save()
+}
+
+const PersonModel = mongoose.model('Person', PersonSchema)
 
 module.exports = PersonModel

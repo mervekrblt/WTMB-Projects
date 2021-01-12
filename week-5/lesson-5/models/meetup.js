@@ -12,6 +12,6 @@ const MeetupSchema = new mongoose.Schema({
     }
 })
 
-const MeetupModel = mongoose.model('meetup', MeetupSchema)
+const MeetupModel = mongoose.model('Meetup', MeetupSchema)
 
 module.exports =MeetupModel

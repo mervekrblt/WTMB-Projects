@@ -3,28 +3,28 @@ const router = express.Router()
 
 const MeetupService = require('../services/meetup-service')
 
-router.get('/all', async(req,res)=>{
+router.get('/all', async (req, res) => {
     const meetups = await MeetupService.findAll()
-    res.render('meetup', {meetups:meetups})
+    res.render('list', {
+        items: meetups
+    })
 })
 
-router.get('/:id', async(req,res)=>{
-    const id = req.params.id
-    const meetup = await MeetupService.find(id)
+router.get('/:id', async (req, res) => {
+    const meetup = await MeetupService.find(req.params.id)
+    res.render('data', {
+        data: meetup
+    })
+})
+
+router.post('/', async (req, res) => {
+    const meetup = await MeetupService.add(req.body)
     res.send(meetup)
 })
 
-router.post('', async(req,res) =>{
-    const meetup = req.body
-
-    await MeetupService.add(meetup)
+router.delete('/:id', async (req, res) => {
+    const meetup = await MeetupService.del(req.params.id)
     res.send(meetup)
-})
-
-router.delete('/:id', async(req,res)=>{
-    const id = req.params.id
-    await MeetupService.del(id)
-    res.send('Data was deleted')
 })
 
 module.exports = router
