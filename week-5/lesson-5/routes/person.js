@@ -34,7 +34,7 @@ router.post('/:id/meetups', async (req, res) => {
     //fetch the meetup which has the same id
     const meetup = await MeetupService.find(req.body.meetup)
     //define attend function
-    user.attend(meetup)
+    await PersonService.attendMeetup(person, meetup)
     res.send(user)
 })
 
