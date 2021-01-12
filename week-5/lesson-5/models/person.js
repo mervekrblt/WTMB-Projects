@@ -17,7 +17,7 @@ const PersonSchema = new mongoose.Schema({
     }]
 })
 
-PersonSchema.methods.attend = async function(){
+PersonSchema.methods.attend = async function(meetup){
     this.meetups.push(meetup)
     //have to save it
     await this.save()
