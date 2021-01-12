@@ -38,4 +38,11 @@ router.post('/:id/meetups', async (req, res) => {
     res.send(user)
 })
 
+//get all the peers of a particular person
+router.get('/:id/peers-over-18', async(req,res) =>{
+    const user = await PersonService.find(req.params.id)
+    const peers = await user.findPeersOver18()
+    res.send(peers)
+})
+
 module.exports = router
