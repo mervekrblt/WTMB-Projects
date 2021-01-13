@@ -1,0 +1,9 @@
+extends layout
+
+block content3
+    h1 Tweets Page
+    each tweet in tweets
+        p(style ="color:red") #{tweet.id}
+        p " #{tweet.text} " 
+        hr
+        

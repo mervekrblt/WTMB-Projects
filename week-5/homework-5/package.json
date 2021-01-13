@@ -1,0 +1,18 @@
+{
+  "name": "homework-4",
+  "version": "1.0.0",
+  "description": "homework-4",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Merve Karabulut",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "flatted": "^3.1.0",
+    "nodemon": "^2.0.6",
+    "pug": "^3.0.0"
+  }
+}
