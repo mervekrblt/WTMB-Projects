@@ -17,7 +17,7 @@ module.exports = class Service {
   }
 
   async find(itemId) {
-    return this.model.finnById(itemId)
+    return this.model.findById(itemId)
   }
 
 }
