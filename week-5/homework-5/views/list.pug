@@ -1,0 +1,7 @@
+extends layout
+
+block content
+    
+    each item in items
+      p #{item.name}
+    pre #{JSON.stringify(items, null, 4)}
