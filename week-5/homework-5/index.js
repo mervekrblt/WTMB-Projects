@@ -1,11 +1,10 @@
 const express = require('express')
 
-
-const LikeService = require('./services/like-service')
-const likeService = require('./services/like-service')
 const bodyParser = require('body-parser')
 
 const app = express()
+
+require('./mongo-connection')
 
 app.set('view engine', 'pug')
 app.use(bodyParser.json())

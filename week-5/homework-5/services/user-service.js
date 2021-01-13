@@ -3,9 +3,7 @@ const UserModel = require('../models/user')
 
 
 class UserService extends BaseService {
-    constructor() {
-        super(UserModel, `${__dirname}/../user-database.json`)
-    }
+    model=UserModel
 }
 
 module.exports = new UserService()

@@ -1,7 +1,23 @@
-const Tweet = require('./tweet')
-const Like = require('./like')
 
+const mongoose = require('mongoose')
 
+const UserSchema = new mongoose.Schema({
+    name:{
+        type:String,
+        minlength:3,
+        required:true
+    },
+    username:{
+        type:String,
+        minlength:3,
+        required:true
+    }
+})
+
+const UserModel = mongoose.model('User',UserSchema)
+
+module.exports=UserModel
+    /*
 module.exports= class User{
     constructor(name, username, tweets=[],likedTweets=[], following=[],followers=[], id){
         this.name = name
@@ -30,4 +46,4 @@ module.exports= class User{
     static create({name, username, tweets,likedTweets, following,followers, id}){
         return new User(name, username, tweets,likedTweets, following,followers, id) 
     }
-}
+}*/
