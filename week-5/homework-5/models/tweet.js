@@ -2,11 +2,12 @@ const mongoose=require('mongoose')
 
 const TweetSchema = new mongoose.Schema({
     //with tweet.create function, get autor and text
-    autor:{
+    author:{
         type: mongoose.SchemaTypes.ObjectId,
         ref: 'User',
         autopopulate: {
-            maxDepth:1
+            maxDepth: 1,
+            select: 'username'      
         }
     },
     text:{

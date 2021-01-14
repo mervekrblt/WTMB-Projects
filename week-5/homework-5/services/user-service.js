@@ -10,7 +10,7 @@ class UserService extends BaseService {
         //user.tweets.push(text)
         //await user.save()
         //take the text and convert it to tweet model. thus, the text has an id
-        const tweet =await TweetModel.create({autor:user, text})
+        const tweet =await TweetModel.create({author:user, text})
         //then push this tweet to user.tweets. I have to update tweets type etc.
         user.tweets.push(tweet)
         //dont forget saving
