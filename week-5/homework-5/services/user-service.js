@@ -16,6 +16,18 @@ class UserService extends BaseService {
         //dont forget saving
         await user.save()
     }
+    async follow(user,person){
+        //console.log(user)--> the user who follow the person
+        //console.log(person)--> id of person
+        //push id of person into user following array
+        user.following.push(person)
+        //find the user based on its id
+        const anotherUser = await UserModel.findById(person)
+        anotherUser.followers.push(user)
+        user.save()
+        anotherUser.save()
+        
+    }
 }
 
 module.exports = new UserService()

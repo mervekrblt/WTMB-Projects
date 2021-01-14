@@ -39,4 +39,14 @@ router.post('/:id/tweets', async(req,res)=>{
     res.send(user)
 })
 
+router.post('/:id/follow', async(req,res)=>{
+    //find the user
+    const user = await UserService.find(req.params.id)
+    //fetch the id of following person
+    const person = req.body.person
+    //create a function 
+    await UserService.follow(user,person)
+    res.send(user)
+})
+
 module.exports = router
