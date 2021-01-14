@@ -13,6 +13,7 @@
     "express": "^4.17.1",
     "flatted": "^3.1.0",
     "mongoose": "^5.11.11",
+    "mongoose-autopopulate": "^0.12.3",
     "nodemon": "^2.0.6",
     "pug": "^3.0.0"
   }

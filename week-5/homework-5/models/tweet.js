@@ -1,16 +1,27 @@
 const mongoose=require('mongoose')
 
 const TweetSchema = new mongoose.Schema({
-    user:{
-        type:String,
-        required:true,
-        minlength:3
+    //with tweet.create function, get autor and text
+    autor:{
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: 'User',
+        autopopulate: {
+            maxDepth:1
+        }
     },
     text:{
-        type:String,
-        minlength:5
+        type:String
+        /*
+        type:mongoose.SchemaTypes.ObjectId,
+        ref:'User',
+        autopopulate:{
+            select: 'text'
+        }*/
     }
+    
 })
+
+TweetSchema.plugin(require('mongoose-autopopulate'))
 
 const TweetModel=mongoose.model('Tweet',TweetSchema)
 
