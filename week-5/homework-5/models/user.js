@@ -38,6 +38,14 @@ const UserSchema = new mongoose.Schema({
             maxDepth:1
         }
         
+    }],
+    likes:[{
+        type:mongoose.SchemaTypes.ObjectId,
+        ref:'Tweet',
+        autopopulate:{
+            select: 'text',
+            maxDepth:1,
+        }
     }]
 })
 

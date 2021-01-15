@@ -24,9 +24,19 @@ class UserService extends BaseService {
         //find the user based on its id
         const anotherUser = await UserModel.findById(person)
         anotherUser.followers.push(user)
-        user.save()
-        anotherUser.save()
+        await user.save()
+        await anotherUser.save()
         
+    }
+
+    async like(user,tweet){
+        const likedTweet = await TweetModel.findById(tweet) 
+
+        user.likes.push(tweet)
+        likedTweet.likes.push(user)
+
+        await user.save()
+        await likedTweet.save()
     }
 }
 

@@ -18,7 +18,15 @@ const TweetSchema = new mongoose.Schema({
         autopopulate:{
             select: 'text'
         }*/
-    }
+    },
+    likes:[{
+        type:mongoose.SchemaTypes.ObjectId,
+        ref:'User',
+        autopopulate:{
+            select: 'username',
+            maxDepth:1,
+        }
+    }]
     
 })
 

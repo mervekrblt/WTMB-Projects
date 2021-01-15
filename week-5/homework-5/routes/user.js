@@ -2,6 +2,7 @@ const express= require("express")
 const router = express.Router()
 
 const UserService = require('../services/user-service')
+const TweetService = require('../services/tweet-service')
 
 router.get('/all', async (req, res) => {
     const users = await UserService.findAll()
@@ -45,6 +46,13 @@ router.post('/:id/follow', async(req,res)=>{
     const person = req.body.person
     //create a function 
     await UserService.follow(user,person)
+    res.send(user)
+})
+
+router.post('/:id/likes', async(req,res) =>{
+    const user = await UserService.find(req.params.id)
+    const tweet = req.body.tweet
+    await UserService.like(user,tweet)
     res.send(user)
 })
 
