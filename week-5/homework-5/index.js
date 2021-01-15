@@ -21,6 +21,10 @@ app.use('/user', userRouter)
 const tweetRouter=require('./routes/tweet')
 app.use('/tweet', tweetRouter)
 
+//Like router
+const likeRouter=require('./routes/like')
+app.use('/like', likeRouter)
+
 
 
 app.listen(3000, 'localhost', () => {

@@ -1,11 +1,13 @@
-  
-module.exports =class Like{
-    constructor(user, tweet, id){
-        this.user = user
-        this.tweet= tweet
-        this.id = id
+const mongoose=require('mongoose')
+
+const LikeSchema = new mongoose.Schema({
+    like:{
+        type:String
     }
-    static create({user,tweet,id}){
-        return new Like(user,tweet,id)
-    }
-}
+})
+
+LikeSchema.plugin(require('mongoose-autopopulate'))
+
+const LikeModel=mongoose.model('Like',LikeSchema)
+
+module.exports= LikeModel

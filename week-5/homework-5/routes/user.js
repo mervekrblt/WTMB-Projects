@@ -1,5 +1,4 @@
 const express= require("express")
-const tweetService = require("../services/tweet-service")
 const router = express.Router()
 
 const UserService = require('../services/user-service')
