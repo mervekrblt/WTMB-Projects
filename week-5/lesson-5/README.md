@@ -84,16 +84,17 @@ class PersonService extends BaseService {
  ```
 
 **Note**:
-*Base-service is a link that goes between the database and the routers*<br>
-*Dont use mongoose model directly in routes. Use services into routes*<br>
-Why would we want to have a base-service?<br>
-*Trying to modularize our code which means we should be able to plug and play different modules and they should still work.*<br>
+- *Base-service is a link that goes between the database and the routers*<br>
+- *Dont use mongoose model directly in routes. Use services into routes*<br>
+- Why would we want to have a base-service?<br>
+- *Trying to modularize our code which means we should be able to plug and play different modules and they should still work.*<br>
+
 **We dont want to depend on other people's choices**
 
 If we need to change database in the future. All we need to do is replace:
 - the models
--library
--the base-service (functions)
+- library
+- the base-service (functions)
 
 ## Validation
 
