@@ -10,13 +10,25 @@ router.get('/all', async (req, res) => {
         items: people
     })
 })
+//add for testing
+router.get('/all/json', async (req, res) => {
+    const people = await PersonService.findAll()
+    res.send(people)
+  })
 
 router.get('/:id', async (req, res) => {
     const user = await PersonService.find(req.params.id)
+    if (!user) res.status(404) //add for testing
     res.render('data', {
         data: user
     })
 })
+// add for testing
+router.get('/:id/json', async (req, res) => {
+    const user = await PersonService.find(req.params.id)
+    if (!user) res.status(404)
+    res.send(user)
+  })
 
 router.post('/', async (req, res) => {
     const user = await PersonService.add(req.body)
