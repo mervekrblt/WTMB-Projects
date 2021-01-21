@@ -7,7 +7,8 @@ const TweetSchema = new mongoose.Schema({
         ref: 'User',
         autopopulate: {
             maxDepth: 1,
-            select: 'username'      
+            select: 'username',
+            select: '_id'      
         }
     },
     text:{
