@@ -33,7 +33,7 @@ test('Fetch a person', async t => {
   // first create a person
   const mariaUserCreated = (await request(app)
     .post('/person')
-    .send(personToCreate)).body
+    .send(personToCreate)).body //body --> it also includes _id
 
   // fetch the person we just created
   const fetchRes = await request(app).get(`/person/${mariaUserCreated._id}`)
@@ -103,43 +103,41 @@ test('Get list of people', async t => {
   t.true(jsonRes.body.length > 0)
 })
 
+test('User can attend to a meetup', async t =>{
+  //user and meetup data
+  const merve ={name: 'Merve', age: 26, meetuops: []}
+  const meetup = {name:'wtmb', location:'ankara', attendees: []}
 
-test('User can attend to a meetup', async t => {
-  const annaUser = { name: 'Anna Pavlova', age: 29, meetups: [] }
+  //create user, createMerveRes is a response of request, includes lots of information
+  const createMerveRes = await request(app).post('/person').send(merve)
 
-  const meetupWTM = { name: 'WTM Testing',
-  location: 'Eurostaff',
-  attendees: []}
+  //need body of response to reach informations that I need
+  const merveUser = createMerveRes.body
 
-  // create a person
-  const createdPerson = (await request(app)
-  .post('/person')
-  .send(annaUser)).body
+  //create meetup
+  const createMeetupRes =await request(app).post('/meetup').send(meetup)
+  const createdMeetup = createMeetupRes.body
 
-  // create a meetup
-  const createdMeetup = (await request(app)
-  .post('/meetup')
-  .send(meetupWTM)).body
+  //call route which aplly attend function
 
-  // attend to the meetup with the user
-  const addMeetupRes = await request(app)
-  .post(`/person/${createdPerson._id}/meetups`)
-  .send( {meetup: createdMeetup._id} )
+  const attendMeetupRes =await request(app).post(`/person/${merveUser._id}/meetups`).send({meetup : createdMeetup._id})
 
-  // check the server response success
-  t.is(addMeetupRes.status, 200)
+  //checking
+  t.is(attendMeetupRes.status, 200)
 
-  // response body is the altered data of the user
-  const personAltered = addMeetupRes.body
+  //to be sure merve has meetup, merve who has a meetup is not same with merve who has not have a meetup, so use altered
+  //getting data with attendMeetupRes.body because attend function return user data (res.send(user))
+  const alteredMerve  = attendMeetupRes.body
+  t.deepEqual(alteredMerve.meetups[0], createdMeetup) // checked all meetup's data, name, id,location etc
 
-  // check that user has that meetup on their meetups
-  t.is(personAltered.meetups[0]._id, createdMeetup._id)
-
-  // check that user's meetup is the meetup we created
-  t.deepEqual(personAltered.meetups[0], createdMeetup)
+   // check that user has that meetup on their meetups
+   t.is(alteredMerve.meetups[0]._id, createdMeetup._id)
 
   // personAltered is not the same with the first created user
   // createdPerson had no meetups
   // personAltered has the meetup amongst their list of meetups
-  t.notDeepEqual(personAltered, createdPerson)
+  t.notDeepEqual(alteredMerve, merveUser)
+
+  // What if meetup doesnt have the same user, you should write test for meetup also
 })
+
