@@ -1,5 +1,3 @@
-const fs = require('fs')
-const Flatted = require('flatted')
 
 module.exports = class Service {
 
@@ -18,6 +16,14 @@ module.exports = class Service {
 
   async find(itemId) {
     return this.model.findById(itemId)
+  }
+
+  async  del(itemId) {
+    return this.model.deleteOne({_id:itemId})
+  }
+
+  async deleteAll(filter){
+    return this.model.deleteMany(filter)
   }
 
 }

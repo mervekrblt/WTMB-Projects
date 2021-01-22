@@ -25,6 +25,11 @@ router.post('/', async (req, res) => {
 })
 
 router.delete('/:id', async (req, res) => {
+    //filter users and delete
+    const x =await TweetService.deleteAll({ "author": {
+        "_id": req.params.id
+    }})
+    console.log(x)
     await UserService.del(req.params.id)
     res.send('Data was deleted')
 })
