@@ -14,10 +14,9 @@ router.get('/all/json', async (req, res) => {
 })
 
 router.get('/:id', async (req, res) => {
-    const id = req.params.id
-    const tweet = await TweetService.find(id)
+    const tweet = await TweetService.find(req.params.id)
     res.render('data', { data: tweet })
-    console.log(tweet.author)
+    //console.log(tweet.author)
 })
 
 router.get('/:id/json', async (req, res) => {
@@ -27,9 +26,9 @@ router.get('/:id/json', async (req, res) => {
   })
 
 router.post('/', async (req, res) => {
-    const tweet = req.body
+    //const tweet = req.body
 
-    await TweetService.add(tweet)
+    await TweetService.add(req.body)
     res.send(tweet)
 })
 
