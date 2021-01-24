@@ -26,12 +26,12 @@ router.get('/:id/json', async (req, res) => {
     res.send(tweet)
   })
 
-router.post('/', async (req, res) => {
+/*router.post('/', async (req, res) => {
     //const tweet = req.body
 
     await TweetService.add(req.body)
     res.send(tweet)
-})
+})*/
 
 router.delete('/:id', async (req, res) => {
     const tweet = await TweetService.del(req.params.id)

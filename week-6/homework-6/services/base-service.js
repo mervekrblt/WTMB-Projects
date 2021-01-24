@@ -10,10 +10,6 @@ module.exports = class Service {
     return this.model.create(item)
   }
 
-  async  del(itemId) {
-    return this.model.remove({_id:itemId})
-  }
-
   async find(itemId) {
     return this.model.findById(itemId)
   }

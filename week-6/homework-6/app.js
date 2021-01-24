@@ -9,8 +9,14 @@ require('./mongo-connection')
 app.set('view engine', 'pug')
 app.use(bodyParser.json())
 
+app.get('/index', (req, res) => {
+    const view = 'index.pug'
+    res.render(view)
+})
+
 app.get('/', (req, res) => {
-    res.render('index')
+    const view = 'index.pug'
+    res.render(view)
 })
 
 //User router
