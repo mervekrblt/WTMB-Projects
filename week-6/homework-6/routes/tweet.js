@@ -15,6 +15,7 @@ router.get('/all/json', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     const tweet = await TweetService.find(req.params.id)
+    if (!tweet) res.status(404)
     res.render('data', { data: tweet })
     //console.log(tweet.author)
 })
