@@ -6,7 +6,7 @@ class PersonService extends BaseService {
 
     async attendMeetup(person, meetup) {
         person.meetups.push(meetup)
-        meetup.attendees.push(this)
+        meetup.attendees.push(person)
         //have to save it
         await person.save()
         await meetup.save()

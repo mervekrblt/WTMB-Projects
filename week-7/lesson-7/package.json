@@ -1,13 +1,14 @@
 {
-  "name": "lesson-6",
+  "name": "lesson-7",
   "version": "1.0.0",
-  "description": "wtmb-lesson-6",
+  "description": "wtmb-lesson-7",
   "main": "index.js",
   "scripts": {},
   "author": "Merve Karabulut",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "flatted": "^3.1.0",
     "mongoose": "^5.11.10",
