@@ -1,6 +1,6 @@
 <script>	
 // @ is an alias to /src	
-import HelloWorld from '@/components/HelloWorld.vue'
+import MeetupCard from '@/components/meetup-card.vue'
 //use state properties with mapState
 import { mapState, mapActions } from 'vuex'
 
@@ -8,15 +8,15 @@ export default {
   name: 'Home',	
 
   components: {	
-    HelloWorld	
+    MeetupCard	
   },
   
   computed: {
-    ...mapState(['meetups'])
+    ...mapState(['meetups', 'counter'])
   },
 
   methods: {
-    ...mapActions(['fetchMeetups'])
+    ...mapActions(['fetchMeetups', 'incrementCounter'])
   },
 
   created() {
@@ -28,6 +28,9 @@ export default {
 <template lang="pug">
 main
   h1 Hello world
-  
-  div {{ meetups }}
+  button(@click="incrementCounter") Increment
+  div {{ counter }}
+  //div {{ meetups }}
+
+  meetup-card(v-for="meetup in meetups", :meetup="meetup") 
 </template>
