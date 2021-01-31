@@ -33,7 +33,6 @@ main
     button.increment-button(@click="incrementCounter") Increment
     div {{ counter }}
   //div {{ meetups }}
-
 </template>
 
 

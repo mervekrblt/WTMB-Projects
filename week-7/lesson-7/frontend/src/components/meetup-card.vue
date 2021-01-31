@@ -4,11 +4,11 @@ export default {
   name: 'MeetupCard',
   props: ['meetup'],
 
-  methods: {
-    displayPerson(){
-      return this.meetup.attendees.map(attendee => attendee.name) 
+  computed: {
+    meetupUrl() {
+      return `/meetup/${this.meetup._id}`
     }
-  },
+  }
 }
 </script>
 
@@ -16,9 +16,10 @@ export default {
 <template lang="pug">
   article.card
     img(:src="`https://picsum.photos/300/200?random=${meetup._id}`", alt="random image") 
-    h2 {{meetup.name}} 
-    p  {{meetup.location}}
-    p(v-for="person in displayPerson()")  {{person}}
+    h2 
+      router-link(:to="meetupUrl") {{meetup.name}} 
+    p  Location: {{meetup.location}}
+    p  {{meetup.attendees.length}} attendees
 </template>
 
 <style scoped>

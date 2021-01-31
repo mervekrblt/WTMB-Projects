@@ -7,7 +7,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     counter: 0,
-    meetups: []
+    meetups: [],
+    meetup: {}
   },
 
   mutations: {
@@ -16,6 +17,9 @@ export default new Vuex.Store({
     },
     SET_MEETUPS(state, data){
       state.meetups = data
+    },
+    SET_MEETUP(state, data){
+      state.meetup = data
     }
   },
 
@@ -28,7 +32,12 @@ export default new Vuex.Store({
     async fetchMeetups({ commit }){
       const result = await axios.get('http://localhost:3000/meetup/all/json')
       commit('SET_MEETUPS', result.data)
-    }
+    },
+
+    async fetchMeetup({ commit }, id){
+      const result = await axios.get(`http://localhost:3000/meetup/${id}/json`)
+      commit('SET_MEETUP', result.data)
+    },
   },
 
   modules: {
