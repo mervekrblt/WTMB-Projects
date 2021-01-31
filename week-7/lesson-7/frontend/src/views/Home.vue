@@ -27,10 +27,29 @@ export default {
 
 <template lang="pug">
 main
-  h1 Hello world
-  button(@click="incrementCounter") Increment
-  div {{ counter }}
+  section
+    meetup-card(v-for="meetup in meetups", :meetup="meetup")
+  section
+    button.increment-button(@click="incrementCounter") Increment
+    div {{ counter }}
   //div {{ meetups }}
 
-  meetup-card(v-for="meetup in meetups", :meetup="meetup") 
 </template>
+
+
+<style scoped>
+  section{
+    padding: 40px 0px;
+  }
+
+  .increment-button{
+    color:rgb(0, 0, 0);
+    padding: 20px 30px;
+    border-radius: 10%;
+    background: coral;
+  }
+
+  .increment-button:hover{
+    background-color: cornflowerblue;
+  }
+</style>
