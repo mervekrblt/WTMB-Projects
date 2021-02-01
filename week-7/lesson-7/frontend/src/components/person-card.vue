@@ -1,0 +1,36 @@
+
+<script>
+export default {
+  name: 'PersonCard',
+  props: ['person'],
+
+  computed: {
+    personUrl() {
+      return `/person/${this.person._id}`
+    }
+  }
+}
+</script>
+
+
+<template lang="pug">
+  article.card
+    img(:src="`https://picsum.photos/300/200?random=${person._id}`", alt="random image") 
+    h2 
+      router-link(:to="personUrl") {{person.name}}
+    p  Age: {{person.age}} 
+</template>
+
+<style scoped>
+
+.card{
+  color: rgb(25, 131, 223);
+  display: inline-block;
+  margin: 20px;
+  text-align: left;
+  border: black 3px solid;
+  padding: 20px;
+  min-width: 30vh;
+}
+
+</style>

@@ -17,7 +17,7 @@ export default {
   methods: {
     ...mapActions(['fetchMeetup']),
 
-    displayPerson(){
+    displayAttendees(){
       return this.meetup.attendees.map(attendee => attendee.name) 
     }
   },
@@ -33,7 +33,8 @@ export default {
     section
         meetup-card(:meetup="meetup")
     section Attendees:
-        p(v-for="person in displayPerson()") {{person}} 
+        p(v-for="attendees in displayAttendees()") {{ attendees }} 
+        //p {{ meetup.attendees.map(attendee => attendee.name)}}
 </template>
 
 <style  scoped>

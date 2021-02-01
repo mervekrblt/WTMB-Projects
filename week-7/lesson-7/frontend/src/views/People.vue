@@ -1,5 +1,41 @@
-<template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+<script>	
+// @ is an alias to /src	
+import PersonCard from '@/components/person-card.vue'
+//use state properties with mapState
+import { mapState, mapActions } from 'vuex'
+
+export default {	
+  name: 'People',	
+
+  components: {	
+    	PersonCard
+  },
+  
+  computed: {
+    ...mapState(['people'])
+  },
+
+  methods: {
+    ...mapActions(['fetchPeople'])
+  },
+
+  created() {
+    this.fetchPeople()
+  }
+}	
+</script>
+
+<template lang="pug">
+main
+    section
+      person-card(v-for="person in people", :person="person")
+
+  
 </template>
+
+<style scoped>
+  section{
+    padding: 40px 0px;
+  }
+
+</style>
