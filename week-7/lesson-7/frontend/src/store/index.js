@@ -29,6 +29,9 @@ export default new Vuex.Store({
     SET_PERSON(state, data){
       state.person = data
     },
+     SET_NEWMEETUP(state, data) {
+       state.meetups.push(data)
+    },
   },
 
   actions: {
@@ -56,6 +59,12 @@ export default new Vuex.Store({
     async fetchPerson({ commit }, id){
       const result = await axios.get(`http://localhost:3000/person/${id}/json`)
       commit('SET_PERSON', result.data)
+    },
+
+    async addMeetup({ commit }, meetup) {
+      const result = await axios.post('http://localhost:3000/meetup',meetup)
+      commit('SET_NEWMEETUP', result.data)
+      console.log(result.data)
     },
   },
 

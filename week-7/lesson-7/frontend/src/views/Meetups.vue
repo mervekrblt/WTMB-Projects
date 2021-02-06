@@ -1,6 +1,7 @@
 <script>	
 // @ is an alias to /src	
 import MeetupCard from '@/components/meetup-card.vue'
+import NewMeetup from '@/components/new-meetup.vue'
 //use state properties with mapState
 import { mapState, mapActions } from 'vuex'
 
@@ -8,7 +9,8 @@ export default {
   name: 'Home',	
 
   components: {	
-    MeetupCard	
+    MeetupCard,
+    NewMeetup	
   },
   
   computed: {
@@ -27,12 +29,14 @@ export default {
 
 <template lang="pug">
 main
+  
   section
+    new-meetup
     meetup-card(v-for="meetup in meetups", :meetup="meetup")
   section
     button.increment-button(@click="incrementCounter") Increment
     div {{ counter }}
-  //div {{ meetups }}
+  
 </template>
 
 
