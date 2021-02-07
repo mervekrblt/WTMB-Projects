@@ -27,16 +27,17 @@ export default {
   },
 
   methods: {
-      ...mapActions(["deleteMeetup"]),
+    ...mapActions(["deleteMeetup"]),
 
-      delMeetup() {
-        //console.log((this.meetup._id))
-        const answer = confirm(`Do you want to delete ${this.meetup.name} meetup`)
-        if(answer){
-          this.deleteMeetup(this.meetup._id)
-        }
-        //console.log(this.deleteMeetup(this.meetup._id)) 
+    delMeetup() {
+      //console.log((this.meetup._id))
+      const answer = confirm(`Do you want to delete ${this.meetup.name} meetup`)
+      if(answer){
+        this.deleteMeetup(this.meetup._id)
+      }
+      //console.log(this.deleteMeetup(this.meetup._id)) 
     }
+      
   }
 }
 </script>
@@ -64,11 +65,17 @@ export default {
   border: black 3px solid;
   padding: 20px;
   min-width: 30vh;
+  border-radius: 20px;
 }
 
 .deleteButton {
   float: right;
   margin-bottom: 10%;
+  width: 20%;
+  border-radius: 10px;
+  outline: none;
+  background-color: #42b983;
+  height: 30px;
 }
 
 </style>
