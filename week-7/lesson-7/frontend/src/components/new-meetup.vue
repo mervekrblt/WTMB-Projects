@@ -17,7 +17,7 @@ export default {
   methods: {
       ...mapActions(["addMeetup"]),
 
-      Submit() {
+      submit() {
         let newMeetup = {
             name: this.name,
             location: this.location
@@ -38,7 +38,7 @@ export default {
   section
    input(v-model="name", placeholder="Meetup Name")
    input(v-model="location", placeholder="Location")
-   button(@click="Submit" ) Create New Meetup
+   button(@click="submit" ) Create New Meetup
 </template>
 
 <style scoped>
