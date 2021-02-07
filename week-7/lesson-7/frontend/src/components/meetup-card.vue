@@ -1,6 +1,18 @@
 
 <script>
+
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
+
+import { mapActions} from 'vuex'
+
 export default {
+  data () {
+    return {
+      myIcon: faTrash
+    }
+  },
+
   name: 'MeetupCard',
   props: ['meetup'],
 
@@ -8,13 +20,34 @@ export default {
     meetupUrl() {
       return `/meetup/${this.meetup._id}`
     }
+  },
+
+  components: {
+    FontAwesomeIcon
+  },
+
+  methods: {
+      ...mapActions(["deleteMeetup"]),
+
+      delMeetup() {
+        //console.log((this.meetup._id))
+        const answer = confirm(`Do you want to delete ${this.meetup.name} meetup`)
+        if(answer){
+          this.deleteMeetup(this.meetup._id)
+        }
+        //console.log(this.deleteMeetup(this.meetup._id)) 
+    }
   }
 }
 </script>
 
 
 <template lang="pug">
+
   article.card
+    section
+      button.deleteButton(@click="delMeetup")
+        font-awesome-icon(:icon="myIcon")
     img(:src="`https://picsum.photos/300/200?random=${meetup._id}`", alt="random image") 
     h2 
       router-link(:to="meetupUrl") {{meetup.name}} 
@@ -23,7 +56,6 @@ export default {
 </template>
 
 <style scoped>
-
 .card{
   color: rgb(25, 131, 223);
   display: inline-block;
@@ -32,6 +64,11 @@ export default {
   border: black 3px solid;
   padding: 20px;
   min-width: 30vh;
+}
+
+.deleteButton {
+  float: right;
+  margin-bottom: 10%;
 }
 
 </style>

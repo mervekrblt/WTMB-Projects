@@ -32,6 +32,9 @@ export default new Vuex.Store({
      SET_NEWMEETUP(state, data) {
        state.meetups.push(data)
     },
+    DELETE_MEETUP(state, data) {
+      state.meetups.splice(data, 1)
+   },
   },
 
   actions: {
@@ -64,7 +67,13 @@ export default new Vuex.Store({
     async addMeetup({ commit }, meetup) {
       const result = await axios.post('http://localhost:3000/meetup',meetup)
       commit('SET_NEWMEETUP', result.data)
-      console.log(result.data)
+      //console.log(result.data)
+    },
+
+    async deleteMeetup({ commit }, id) {
+      const result = await axios.delete(`http://localhost:3000/meetup/${id}`)
+      commit('DELETE_MEETUP', result.data)
+      //console.log(result.data)
     },
   },
 
