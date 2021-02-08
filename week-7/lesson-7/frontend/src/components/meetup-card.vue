@@ -36,7 +36,8 @@ export default {
         this.deleteMeetup(this.meetup._id)
       }
       //console.log(this.deleteMeetup(this.meetup._id)) 
-    }
+    },
+
       
   }
 }
@@ -54,6 +55,7 @@ export default {
       router-link(:to="meetupUrl") {{meetup.name}} 
     p  Location: {{meetup.location}}
     p  {{meetup.attendees.length}} attendees
+    button Attend
 </template>
 
 <style scoped>

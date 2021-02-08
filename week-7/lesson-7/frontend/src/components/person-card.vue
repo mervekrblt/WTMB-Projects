@@ -1,12 +1,24 @@
 
 <script>
+
+import { mapActions} from 'vuex'
+
 export default {
   name: 'PersonCard',
+
   props: ['person'],
+
+  methods: {
+    ...mapActions(['attendMeetup'])
+  },
 
   computed: {
     personUrl() {
       return `/person/${this.person._id}`
+    },
+
+    meetupUrl() {
+      return `/`
     }
   }
 }
@@ -18,7 +30,9 @@ export default {
     img(:src="`https://picsum.photos/300/200?random=${person._id}`", alt="random image") 
     h2 
       router-link(:to="personUrl") {{person.name}}
-    p  Age: {{person.age}} 
+    p  Age: {{person.age}}
+    button
+      router-link(:to="meetupUrl") Attend a Meetup
 </template>
 
 <style scoped>
