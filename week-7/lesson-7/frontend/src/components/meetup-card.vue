@@ -34,6 +34,7 @@ export default {
       const answer = confirm(`Do you want to delete ${this.meetup.name} meetup`)
       if(answer){
         this.deleteMeetup(this.meetup._id)
+        location.reload()
       }
       //console.log(this.deleteMeetup(this.meetup._id)) 
     },
@@ -55,7 +56,7 @@ export default {
       router-link(:to="meetupUrl") {{meetup.name}} 
     p  Location: {{meetup.location}}
     p  {{meetup.attendees.length}} attendees
-    button Attend
+    p  ID: {{ meetup._id }}
 </template>
 
 <style scoped>

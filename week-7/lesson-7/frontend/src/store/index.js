@@ -37,14 +37,6 @@ export default new Vuex.Store({
     SET_NEWMEETUP(state, data) {
       state.meetups.push(data)
     },
-
-    DELETE_MEETUP(state, data) {
-      state.meetups.splice(data, 1)
-    },
-
-      ATTEND_MEETUP(state, data) {
-       state.people.push(data)
-     },
      
     SET_NEWPERSON(state, data) {
       console.log(data)
@@ -102,24 +94,30 @@ export default new Vuex.Store({
       commit
     }, id) {
       const result = await axios.delete(`http://localhost:3000/meetup/${id}`)
-      commit('DELETE_MEETUP', result.data)
+      //commit('DELETE_MEETUP', result.data)
       //console.log(result.data)
     },
-
-     async attendMeetup({ commit }, id) {
-
-       const result = await axios.post(`http://localhost:3000/person/${id}/meetups`)
-       commit('ATTEND_MEETUP', result.data)
-       console.log(result.data)
-     },
 
     async addPerson({
       commit
     }, person) {
       const result = await axios.post('http://localhost:3000/person', person)
       commit('SET_NEWPERSON', result.data)
-      //console.log(result.data)
     },
+
+    async deletePerson({
+      commit
+    }, id) {
+      const result = await axios.delete(`http://localhost:3000/person/${id}`)
+      //commit('DELETE_PERSON', result.data)
+      //console.log(result)
+    },
+
+    async attendMeetup({commit}, ids) {
+      const result = await axios.post(`http://localhost:3000/person/${ids.personId}/meetups`, {meetup: `${ids.meetup}`})
+      //commit('ATTEND_MEETUP', result.data)
+      console.log(result.data)
+    }
   },
 
   modules: {}

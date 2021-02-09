@@ -1,15 +1,54 @@
 
 <script>
 
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
+
 import { mapActions} from 'vuex'
 
 export default {
+  data () {
+    return {
+      myIcon: faTrash,
+      show: false,
+    }
+  },
+
   name: 'PersonCard',
 
   props: ['person'],
 
+  components: {
+    FontAwesomeIcon
+  },
+
   methods: {
-    ...mapActions(['attendMeetup'])
+    ...mapActions(["deletePerson", "attendMeetup"]),
+
+    delPerson() {
+      const answer = confirm(`Do you want to delete ${this.person.name}`)
+      if(answer){
+        this.deletePerson(this.person._id)
+        location.reload()
+        //location reload refresh the current page
+      }
+    },
+
+    showInput() {
+      this.show = !this.show
+      console.log(this.show)
+    },
+
+    attend() {
+      //console.log(this.person._id)
+      //console.log(this.$refs.meetupId.value)
+      let ids = {
+        personId: this.person._id,
+        meetup: this.$refs.meetupId.value
+      }
+      this.attendMeetup(ids)
+      this.$refs.meetupId.value =''
+    },
   },
 
   computed: {
@@ -17,9 +56,6 @@ export default {
       return `/person/${this.person._id}`
     },
 
-    meetupUrl() {
-      return `/`
-    }
   }
 }
 </script>
@@ -27,12 +63,17 @@ export default {
 
 <template lang="pug">
   article.card
+    section
+      button.deleteButton(@click="delPerson")
+        font-awesome-icon(:icon="myIcon")
     img(:src="`https://picsum.photos/300/200?random=${person._id}`", alt="random image") 
     h2 
       router-link(:to="personUrl") {{person.name}}
     p  Age: {{person.age}}
-    button
-      router-link(:to="meetupUrl") Attend a Meetup
+    button(@click="showInput") Attend a Meetup
+    section(v-if="show")
+      input(ref="meetupId") 
+      button(@click="attend") Attend
 </template>
 
 <style scoped>
@@ -46,6 +87,16 @@ export default {
   padding: 20px;
   min-width: 30vh;
   border-radius: 20px;
+}
+
+.deleteButton {
+  float: right;
+  margin-bottom: 10%;
+  width: 20%;
+  border-radius: 10px;
+  outline: none;
+  background-color: #42b983;
+  height: 30px;
 }
 
 </style>
