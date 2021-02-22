@@ -46,6 +46,13 @@ export default {
         personId: this.person._id,
         meetup: this.$refs.meetupId.value
       }
+
+      if(!ids.meetup){
+        //console.log("meetup id yok")
+        alert("Meetup id is required")
+      }
+
+      //attendMeetup is came from store
       this.attendMeetup(ids)
       this.$refs.meetupId.value =''
     },
@@ -62,6 +69,7 @@ export default {
 
 
 <template lang="pug">
+section.cards
   article.card
     section
       button.deleteButton(@click="delPerson")
@@ -70,9 +78,9 @@ export default {
     h2 
       router-link(:to="personUrl") {{person.name}}
     p  Age: {{person.age}}
-    button(@click="showInput") Attend a Meetup
-    section(v-if="show")
-      input(ref="meetupId") 
+    button.attendButton(@click="showInput") Attend a Meetup
+    section.show(v-if="show")
+      input(ref="meetupId" placeholder="Meetup's id") 
       button(@click="attend") Attend
 </template>
 
@@ -89,6 +97,10 @@ export default {
   border-radius: 20px;
 }
 
+.cards{
+  display: inline-flex;
+}
+
 .deleteButton {
   float: right;
   margin-bottom: 10%;
@@ -97,6 +109,19 @@ export default {
   outline: none;
   background-color: #42b983;
   height: 30px;
+}
+
+.attendButton {
+  background: rgb(135, 222, 161);
+  border-radius: 2vh;
+  padding: 2vh;
+  outline: none;
+  margin-bottom: 2vh;
+}
+
+.show {
+  display: flex;
+  justify-content: space-between;
 }
 
 </style>

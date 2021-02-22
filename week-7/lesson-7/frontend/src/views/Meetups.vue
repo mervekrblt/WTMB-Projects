@@ -33,9 +33,9 @@ main
   section
     new-meetup
     meetup-card(v-for="meetup in meetups", :meetup="meetup")
-  section
-    button.increment-button(@click="incrementCounter") Increment
-    div {{ counter }}
+  //- section
+  //-   button.increment-button(@click="incrementCounter") Increment
+  //-   div {{ counter }}
   
 </template>
 

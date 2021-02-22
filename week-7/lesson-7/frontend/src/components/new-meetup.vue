@@ -53,6 +53,7 @@ input {
     border-radius: 10px;
     border-block-color: #42b983;
     margin-right: 10vh;
+    outline: none;
 }
 
 button {

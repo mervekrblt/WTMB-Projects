@@ -1,3 +1,14 @@
+<script>
+  import Footer from '@/components/footer.vue'
+
+  export default {
+    name: 'App',
+    components: {
+      Footer,
+    },
+  }
+</script>
+
 <template>
   <div id="app">
     <nav id="nav">
@@ -5,6 +16,7 @@
       <router-link to="/people">People</router-link>
     </nav>
     <router-view/>
+    <Footer/>
   </div>
 </template>
 
