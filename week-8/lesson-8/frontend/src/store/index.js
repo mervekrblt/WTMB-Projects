@@ -56,14 +56,14 @@ export default new Vuex.Store({
     async fetchMeetups({
       commit
     }) {
-      const result = await axios.get('http://localhost:3000/meetup/all/json')
+      const result = await axios.get(`${process.env.VUE_APP_API_URL}/meetup/all/json`)
       commit('SET_MEETUPS', result.data)
     },
 
     async fetchMeetup({
       commit
     }, id) {
-      const result = await axios.get(`http://localhost:3000/meetup/${id}/json`)
+      const result = await axios.get(`${process.env.VUE_APP_API_URL}/meetup/${id}/json`)
       commit('SET_MEETUP', result.data)
     },
 
@@ -71,21 +71,21 @@ export default new Vuex.Store({
     async fetchPeople({
       commit
     }) {
-      const result = await axios.get('http://localhost:3000/person/all/json')
+      const result = await axios.get(`${process.env.VUE_APP_API_URL}/person/all/json`)
       commit('SET_PEOPLE', result.data)
     },
 
     async fetchPerson({
       commit
     }, id) {
-      const result = await axios.get(`http://localhost:3000/person/${id}/json`)
+      const result = await axios.get(`${process.env.VUE_APP_API_URL}/person/${id}/json`)
       commit('SET_PERSON', result.data)
     },
 
     async addMeetup({
       commit
     }, meetup) {
-      const result = await axios.post('http://localhost:3000/meetup', meetup)
+      const result = await axios.post(`${process.env.VUE_APP_API_URL}/meetup`, meetup)
       commit('SET_NEWMEETUP', result.data)
       //console.log(result.data)
     },
@@ -93,7 +93,7 @@ export default new Vuex.Store({
     async deleteMeetup({
       commit
     }, id) {
-      const result = await axios.delete(`http://localhost:3000/meetup/${id}`)
+      const result = await axios.delete(`${process.env.VUE_APP_API_URL}/meetup/${id}`)
       //commit('DELETE_MEETUP', result.data)
       //console.log(result.data)
     },
@@ -101,20 +101,20 @@ export default new Vuex.Store({
     async addPerson({
       commit
     }, person) {
-      const result = await axios.post('http://localhost:3000/person', person)
+      const result = await axios.post(`${process.env.VUE_APP_API_URL}/person`, person)
       commit('SET_NEWPERSON', result.data)
     },
 
     async deletePerson({
       commit
     }, id) {
-      const result = await axios.delete(`http://localhost:3000/person/${id}`)
+      const result = await axios.delete(`${process.env.VUE_APP_API_URL}/person/${id}`)
       //commit('DELETE_PERSON', result.data)
       //console.log(result)
     },
 
     async attendMeetup({commit}, ids) {
-      const result = await axios.post(`http://localhost:3000/person/${ids.personId}/meetups`, {meetup: `${ids.meetup}`})
+      const result = await axios.post(`${process.env.VUE_APP_API_URL}/person/${ids.personId}/meetups`, {meetup: `${ids.meetup}`})
       //commit('ATTEND_MEETUP', result.data)
       console.log(result.data)
     }
